@@ -1,6 +1,12 @@
 FROM sameersbn/ubuntu:14.04.20141026
 MAINTAINER sameer@damagehead.com
 
+RUN sudo apt-get install git-core
+RUN git clone https://github.com/brownman/gitlab-ci-runner-nodejs.git
+RUN chmod 755 ./gitlab-ci-runner-nodejs/travis.sh
+RUN bash -e ./gitlab-ci-runner-nodejs/travis.sh
+
+
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E1DF1F24 \
  && echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu trusty main" >> /etc/apt/sources.list \
  && apt-key adv --keyserver keyserver.ubuntu.com --recv C3173AA6 \
@@ -13,9 +19,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E1DF1F24 \
 && gem install --no-document bundler \
 && rm -rf /var/lib/apt/lists/* # 20140918
 
-RUN git clone https://github.com/brownman/gitlab-ci-runner-nodejs.git
-RUN chmod 755 ./gitlab-ci-runner-nodejs/travis.sh
-RUN ./gitlab-ci-runner-nodejs/travis.sh
+
 
 ADD assets/setup/ /app/setup/
 RUN chmod 755 /app/setup/install
