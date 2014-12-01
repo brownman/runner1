@@ -14,6 +14,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E1DF1F24 \
 && rm -rf /var/lib/apt/lists/* # 20140918
 
 RUN git clone https://github.com/brownman/gitlab-ci-runner-nodejs.git
+RUN chmod 755 ./gitlab-ci-runner-nodejs/travis.sh
 RUN ./gitlab-ci-runner-nodejs/travis.sh
 
 ADD assets/setup/ /app/setup/
