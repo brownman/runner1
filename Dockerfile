@@ -1,11 +1,17 @@
 FROM sameersbn/ubuntu:14.04.20141026
 MAINTAINER sameer@damagehead.com
  
+ 
+#ADD . /docker #cp for dir_root to /docker
+#RUN chmod +x *.sh /docker
+#RUN /docker/DKR/sudoers.sh
+#RUN sudo -E su $LOGNAME
 RUN apt-get update 
 RUN sudo apt-get install git-core
 RUN git clone https://github.com/brownman/gitlab-ci-runner-nodejs.git
-RUN chmod 755 ./gitlab-ci-runner-nodejs/docker.sh
-RUN sudo bash -e ./gitlab-ci-runner-nodejs/docker.sh
+#RUN export dir_root=/docker
+RUN chmod 755 ./gitlab-ci-runner-nodejs/travis.sh
+RUN sudo bash -e ./gitlab-ci-runner-nodejs/travis.sh
 
 
 RUN 1>/dev/null apt-key adv --keyserver keyserver.ubuntu.com --recv E1DF1F24 \
