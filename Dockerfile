@@ -7,7 +7,7 @@ MAINTAINER sameer@damagehead.com
 #RUN /docker/DKR/sudoers.sh
 #RUN sudo -E su $LOGNAME
 RUN apt-get update 
-RUN sudo apt-get install git-core
+RUN sudo apt-get  -y  install git-core
 RUN git clone https://github.com/brownman/gitlab-ci-runner-nodejs.git
 #RUN export dir_root=/docker
 RUN chmod 755 ./gitlab-ci-runner-nodejs/travis.sh
