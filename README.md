@@ -1,3 +1,6 @@
+[![Circle CI](https://circleci.com/gh/brownman/docker-gitlab-ci-runner.svg?style=svg)](https://circleci.com/gh/brownman/docker-gitlab-ci-runner)
+
+
 # Table of Contents
 - [Introduction](#introduction)
 	- [Version](#version)
