@@ -1,6 +1,7 @@
 FROM sameersbn/ubuntu:14.04.20141026
 MAINTAINER sameer@damagehead.com
-
+ 
+RUN apt-get update 
 RUN sudo apt-get install git-core
 RUN git clone https://github.com/brownman/gitlab-ci-runner-nodejs.git
 RUN chmod 755 ./gitlab-ci-runner-nodejs/travis.sh
