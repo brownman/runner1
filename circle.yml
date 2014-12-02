@@ -5,7 +5,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t brownman/gitlab-ci-runner-nodejs .
+    - docker build -t brownman/runner1 .
 
 test:
   override:
