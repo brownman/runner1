@@ -50,12 +50,12 @@ START
 #source /root/.bashrc
 #source /root/.nvm/nvm.sh
 
-nvm install 0.10
+#nvm install 0.10
 #. $dir_nvm/.nvm/nvm.sh
-nvm alias default 0.10
+#nvm alias default 0.10
 
-npm update -g npm 
-npm install -g phantomjs grunt-cli gulp #mean-cli
+#npm update -g npm 
+#npm install -g phantomjs grunt-cli gulp #mean-cli
 
 #mean init myApp $dir_mean_app
 
