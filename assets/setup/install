@@ -34,6 +34,7 @@ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
 #cat $HOME/.bashrc /.nvm/nvm.sh
 #source $dir_bashrc/.bashrc
 #. $dir_nvm/.nvm/nvm.sh
+cat /root/.bashrc | grep nvm
 source /root/.bashrc
 nvm install 0.10
 #. $dir_nvm/.nvm/nvm.sh
