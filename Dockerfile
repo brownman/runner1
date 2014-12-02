@@ -28,8 +28,27 @@ RUN 1>/dev/null apt-key adv --keyserver keyserver.ubuntu.com --recv E1DF1F24 \
 && gem install --no-document bundler \
 && rm -rf /var/lib/apt/lists/* # 20140918
 
+
+####################################  ADD MONGODB
 #RUN apt-get update && apt-get install -y build-essential bzip2 nodejs nodejs-legacy npm
 #RUN npm install -g phantomjs grunt-cli gulp
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10 \
+ && echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' > /etc/apt/sources.list.d/mongodb.list \
+ && apt-get update \
+ && apt-get install -y mongodb-org-server \
+ && sed 's/^bind_ip/#bind_ip/' -i /etc/mongod.conf \
+ && rm -rf /var/lib/apt/lists/* # 20140918
+
+ADD start /start
+RUN chmod 755 /start
+
+EXPOSE 27017
+EXPOSE 28017
+VOLUME ["/var/lib/mongodb"]
+
+CMD ["/start"]
+
+######################################################
 
 ADD assets/setup/ /app/setup/
 RUN chmod 755 /app/setup/install
