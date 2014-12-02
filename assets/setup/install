@@ -34,8 +34,6 @@ apt-get update
 
 sudo su gitlab_ci_runner << START
 wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
-source $HOME/.bashrc
-
 START
 #nvm install 0.10
 #nvm use 0.10
