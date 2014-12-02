@@ -28,7 +28,8 @@ RUN 1>/dev/null apt-key adv --keyserver keyserver.ubuntu.com --recv E1DF1F24 \
 && gem install --no-document bundler \
 && rm -rf /var/lib/apt/lists/* # 20140918
 
-
+RUN apt-get update && apt-get install -y build-essential bzip2 nodejs nodejs-legacy npm
+RUN npm install -g phantomjs grunt-cli gulp
 
 ADD assets/setup/ /app/setup/
 RUN chmod 755 /app/setup/install
