@@ -7,9 +7,12 @@ INSTALL_DIR="/home/gitlab_ci_runner/gitlab-ci-runner"
 DATA_DIR="/home/gitlab_ci_runner/data"
 SETUP_DIR="/app/setup"
 GEM_CACHE_DIR="${SETUP_DIR}/cache"
-
-path_nvm=$DATA_DIR
-dir_mean_app=$DATA_DIR
+################################################## Try fix permission for nvm and mean-skeleton app
+path_nvm="$DATA_DIR/NVM1" 
+dir_mean_app="$DATA_DIR/MEAN1"
+sudo -u gitlab_ci_runner -H mkdir -m 0755 -p $dir_mean_app
+sudo -u gitlab_ci_runner -H mkdir -m 0755 -p $path_nvm
+################################################## ################################################## 
 
 # add git user
 adduser --disabled-login --gecos 'GitLab CI Runner' gitlab_ci_runner
@@ -32,6 +35,7 @@ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
 #echo ". ${dir_nvm}/.nvm/nvm.sh" >> /root/.bashrc
 #cat $HOME/.bashrc /.nvm/nvm.sh
 #source $dir_bashrc/.bashrc
+
 . $path_nvm/.nvm/nvm.sh
 
 #cat /root/.bashrc | grep nvm
@@ -64,6 +68,8 @@ sudo -u gitlab_ci_runner -H bundle install --path vendor/bundle
 
 # create tmp/pids directory
 sudo -u gitlab_ci_runner -H mkdir -m 0755 -p tmp/pids
+
+
 
 # create symlink to builds directory
 rm -rf tmp/builds
