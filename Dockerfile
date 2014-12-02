@@ -2,6 +2,7 @@ FROM sameersbn/ubuntu:14.04.20141026
 MAINTAINER sameer@damagehead.com
  
  
+ 
 #ADD . /docker #cp for dir_root to /docker
 #RUN chmod +x *.sh /docker
 #RUN /docker/DKR/sudoers.sh
