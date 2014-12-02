@@ -8,6 +8,7 @@ DATA_DIR="/home/gitlab_ci_runner/data"
 SETUP_DIR="/app/setup"
 GEM_CACHE_DIR="${SETUP_DIR}/cache"
 
+path_nvm=$DATA_DIR
 dir_mean_app=$DATA_DIR
 
 # add git user
@@ -31,7 +32,7 @@ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
 #echo ". ${dir_nvm}/.nvm/nvm.sh" >> /root/.bashrc
 #cat $HOME/.bashrc /.nvm/nvm.sh
 #source $dir_bashrc/.bashrc
-. /root/.nvm/nvm.sh
+. $path_nvm/.nvm/nvm.sh
 
 #cat /root/.bashrc | grep nvm
 #source /root/.bashrc
