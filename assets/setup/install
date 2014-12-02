@@ -10,8 +10,8 @@ GEM_CACHE_DIR="${SETUP_DIR}/cache"
 ################################################## Try fix permission for nvm and mean-skeleton app
 path_nvm="$DATA_DIR/NVM1" 
 dir_mean_app="$DATA_DIR/MEAN1"
-sudo -u gitlab_ci_runner -H mkdir -m 0755 -p $dir_mean_app
-sudo -u gitlab_ci_runner -H mkdir -m 0755 -p $path_nvm
+#sudo -u gitlab_ci_runner -H mkdir -m 0755 -p $dir_mean_app
+#sudo -u gitlab_ci_runner -H mkdir -m 0755 -p $path_nvm
 ################################################## ################################################## 
 
 # add git user
@@ -47,9 +47,9 @@ nvm install 0.10
 nvm alias default 0.10
 
 npm update -g npm 
-npm install -g phantomjs grunt-cli gulp mean-cli
+npm install -g phantomjs grunt-cli gulp #mean-cli
 
-mean init myApp $dir_mean_app
+#mean init myApp $dir_mean_app
 
 ############################################
 
