@@ -8,8 +8,8 @@ DATA_DIR="/home/gitlab_ci_runner/data"
 SETUP_DIR="/app/setup"
 GEM_CACHE_DIR="${SETUP_DIR}/cache"
 ################################################## Try fix permission for nvm and mean-skeleton app
-dir_nvm="$DATA_DIR/NVM1" 
-dir_mean_app="$DATA_DIR/MEAN1"
+#dir_nvm="$DATA_DIR/NVM1" 
+#dir_mean_app="$DATA_DIR/MEAN1"
 #sudo -u gitlab_ci_runner -H mkdir -m 0755 -p $dir_mean_app
 #sudo -u gitlab_ci_runner -H mkdir -m 0755 -p $path_nvm
 ################################################## ################################################## 
@@ -31,13 +31,20 @@ apt-get update
 #dir_bashrc=$BASHRC_DIR
 #dir_nvm=$NVM_DIR
 
+sudo su gitlab_ci_runner << START
 wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
+source $HOME/.bashrc
+nvm install 0.10
+nvm use 0.10
+nvm alias default 0.10
+START
 #echo ". ${dir_nvm}/.nvm/nvm.sh" >> /root/.bashrc
 #cat $HOME/.bashrc /.nvm/nvm.sh
 #source $dir_bashrc/.bashrc
-mkdir -p $dir_nvm
-mv /root/.nvm $dir_nvm/
-. $dir_nvm/.nvm/nvm.sh
+#mkdir -p $dir_nvm
+#mv /root/.nvm $dir_nvm/
+#ln $dir_nvm/.nvm /root/.nvm
+#. $dir_nvm/.nvm/nvm.sh
 
 #cat /root/.bashrc | grep nvm
 #source /root/.bashrc
