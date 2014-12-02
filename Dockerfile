@@ -27,6 +27,21 @@ RUN 1>/dev/null apt-key adv --keyserver keyserver.ubuntu.com --recv E1DF1F24 \
       libxml2 libxslt1.1 libcurl3 libicu52 \
 && gem install --no-document bundler \
 && rm -rf /var/lib/apt/lists/* # 20140918
+#######################################  ADD NODEJS
+# Install Node.js
+RUN \
+  cd /tmp && \
+  wget http://nodejs.org/dist/node-latest.tar.gz && \
+  tar xvzf node-latest.tar.gz && \
+  rm -f node-latest.tar.gz && \
+  cd node-v* && \
+  ./configure && \
+  CXX="g++ -Wno-unused-local-typedefs" make && \
+  CXX="g++ -Wno-unused-local-typedefs" make install && \
+  cd /tmp && \
+  rm -rf /tmp/node-v* && \
+  npm install -g npm && \
+  echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
 
 
 ####################################  ADD MONGODB
