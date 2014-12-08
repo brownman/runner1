@@ -7,4 +7,8 @@ RUN echo 'source /docker/config.cfg' >> /root/.bashrc
 
 #RUN apt-get install -y locate
 
-RUN env
+#RUN env
+
+CMD mongod --fork -f /etc/mongodb.conf \
+ && redis-server /etc/redis/redis.conf \
+ && cd $HOME/gitlab-ci-runner-master && ssh-keyscan -H $GITLAB_SERVER_FQDN >> $HOME/.ssh/known_hosts && bundle exec ./bin/setup_and_run
