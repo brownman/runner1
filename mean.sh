@@ -17,7 +17,9 @@ npm link
 ( grunt test ) || ( echo never mind the test - try again later! )
 }
 step3(){
-  apt-get update -y
+  apt-get update -y 
+  apt-get upgrade -y
+
   apt-get install -y --force-yes locate
   updatedb
   locate grunt-cli
