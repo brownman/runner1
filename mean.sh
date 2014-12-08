@@ -25,4 +25,3 @@ step3(){
   locate grunt-cli
 }
 step1
-step3
