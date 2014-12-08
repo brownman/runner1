@@ -1,7 +1,7 @@
 export VER_MEAN_CLI='0.9.3'
 
 step1(){
-npm update -g npm
+echo skipping npm update -g npm
 npm install -g grunt-cli 
 }
 step2(){
