@@ -1,10 +1,10 @@
 dir1=$CIRCLE_ARTIFACTS
 docker run brownman/runner1 env &> $dir1/env.txt
-docker run brownman/runner1 grunt-cli &> $dir1/grunt1.txt
-docker run brownman/runner1 bash -c 'grunt-cli' &> $dir1/grunt_cli.txt
 docker run brownman/runner1 bash -c 'ls `npm root -g`' &> $dir1/npm_packages1.txt
 ls `npm root -g` > $dir1/npm_packages2.txt
-cp /root/.bashrc $dir1/bashrc.txt
+cp /root/.bashrc $dir1/bashrc_root.txt
+cp /docker/.bashrc $dir1/bashrc_docker.txt
+ls `which grunt` -l >$dir1/grunt.txt
 
 
 #docker run brownman/runner1 'apt-get install locate;updatedb; locate grunt-cli' &> /tmp/grunt2.txt
