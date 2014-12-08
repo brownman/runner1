@@ -3,7 +3,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ADD . /docker
 RUN chmod +x /docker/mean.sh
 RUN /docker/mean.sh
-RUN echo 'source /docker/config.sh' >> /root/.bashrc
+RUN echo 'source /docker/config.cfg' >> /root/.bashrc
 
 #RUN apt-get install -y locate
 
