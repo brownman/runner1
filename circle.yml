@@ -1,0 +1,21 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t brownman/runner1 .
+    
+test:
+  override:
+     - echo override goes here
+     - chmod u+x ./circle.sh
+     - bash -c ./circle.sh
+
+
+deployment:
+  hub:
+    branch: master
+    commands:
+       - echo deployment goes here
