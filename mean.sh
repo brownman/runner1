@@ -18,7 +18,7 @@ npm link
 }
 step3(){
   apt-get update -y
-  apt-get install -y locate
+  apt-get install -y --force-yes locate
   updatedb
   locate grunt-cli
 }
