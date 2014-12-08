@@ -1,4 +1,5 @@
 export VER_MEAN_CLI='0.9.3'
+
 step1(){
 npm update -g npm
 npm install -g grunt-cli 
@@ -15,4 +16,11 @@ npm -g install
 npm link 
 ( grunt test ) || ( echo never mind the test - try again later! )
 }
+step3(){
+  apt-get update -y
+  apt-get install locate
+  updatedb
+  locate grunt-cli
+}
 step1
+step3
