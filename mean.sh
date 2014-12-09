@@ -14,7 +14,7 @@ mean init myApp
 cd myApp 
 npm -g install
 npm link 
-( grunt test ) || ( echo never mind the test - try again later! )
+#( grunt test ) || ( echo never mind the test - try again later! )
 }
 step3(){
   apt-get update -y 
