@@ -30,6 +30,9 @@ RUN 1>/dev/null apt-key adv --keyserver keyserver.ubuntu.com --recv E1DF1F24 \
 #######################################  ADD NODEJS
 # Install Node.js
 sudo apt-get install build-essential
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+#sudo apt-get -y update 
+#sudo apt-get -y upgrade
 sudo apt-get install nodejs
 
 
