@@ -7,7 +7,7 @@ run1(){
  local args=( $@ )
  local cmd="${args[@]}"
  echo cmd: $cmd
- docker run brownman/runner1 "bash -c \"$cmd\"" 1>$dir1/${str}.out.txt  2>$dir1/${str}.err.txt
+ docker run brownman/runner1 bash -c "$cmd" 1>$dir1/${str}.out.txt  2>$dir1/${str}.err.txt
 }
 
 run1 env env > $dir1/env.txt
