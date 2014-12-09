@@ -51,6 +51,9 @@ EXPOSE 27017
 EXPOSE 28017
 VOLUME ["/var/lib/mongodb"]
 
+RUN mkdir -p /data/db
+CMD mongod --fork -f /etc/mongodb.conf
+############################################## try run mongo on hook:container-restart
 CMD ["/start"]
 
 ###################################################### gitlab user needs sudo to install npm modules
