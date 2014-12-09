@@ -1,11 +1,17 @@
 FROM truongsinh/gitlabci-runner-nodejs
 #ENV DEBIAN_FRONTEND noninteractive
 ADD . /docker
+
 RUN chmod +x /docker/mean.sh
-RUN chmod +x /docker/runnder.sh
+RUN chmod +x /docker/runner.sh
+RUN chmod +x /docker/apt.sh
+
 
 RUN /docker/mean.sh
-#RUN echo 'source /docker/config.cfg' >> /root/.bashrc
+RUN /docker/apt.sh
+
+
+RUN echo 'source /docker/config.cfg' >> /root/.bashrc
 
 #RUN apt-get install -y locate
 
