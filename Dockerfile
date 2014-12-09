@@ -8,6 +8,7 @@ RUN echo 'source /docker/config.cfg' >> /root/.bashrc
 #RUN apt-get install -y locate
 
 #RUN env
+RUN mkdir -p /data/db
 
 CMD mongod --fork -f /etc/mongodb.conf \
  && redis-server /etc/redis/redis.conf \
