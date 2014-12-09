@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+#depend on: pv , print_line , print_color
 
 
   
