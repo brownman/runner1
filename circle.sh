@@ -1,4 +1,4 @@
-#!/usr/env/bin bash
+#!/usr/bin/env bash
 dir1=$CIRCLE_ARTIFACTS
 
 run1(){
