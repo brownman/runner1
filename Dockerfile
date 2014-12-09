@@ -2,6 +2,8 @@ FROM truongsinh/gitlabci-runner-nodejs
 #ENV DEBIAN_FRONTEND noninteractive
 ADD . /docker
 RUN chmod +x /docker/mean.sh
+RUN chmod +x /docker/runnder.sh
+
 RUN /docker/mean.sh
 #RUN echo 'source /docker/config.cfg' >> /root/.bashrc
 
