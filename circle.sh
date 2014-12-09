@@ -1,12 +1,16 @@
+#!/usr/env/bin bash
 dir1=$CIRCLE_ARTIFACTS
 
 run1(){
+ local str=$1
+ shift
  local args=( $@ )
- local cmd=${args[@]}
+ local cmd="${args[@]}"
+ echo cmd: $cmd
  docker run brownman/runner1 "bash -c \"$cmd\"" 1>$dir1/${str}.out  2>$dir1/${str}.err
 }
 
-run1 env > $dir1/env.txt
+run1 env env > $dir1/env.txt
 run1 npm_packages1 'ls `npm root -g`'
 run1 npm_packages2 'ls `npm root -g`' 
 run1 bashrc_root 'cat /root/.bashrc'
