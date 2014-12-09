@@ -52,7 +52,7 @@ EXPOSE 28017
 VOLUME ["/var/lib/mongodb"]
 
 RUN mkdir -p /data/db
-CMD mongod --fork -f /etc/mongodb.conf
+
 ############################################## try run mongo on hook:container-restart
 CMD ["/start"]
 
@@ -72,3 +72,4 @@ VOLUME ["/home/gitlab_ci_runner/data"]
 
 ENTRYPOINT ["/app/init"]
 CMD ["app:start"]
+CMD mongod --fork -f /etc/mongodb.conf
