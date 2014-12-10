@@ -6,7 +6,7 @@ exec &> >(grep -i 'npm ERR' 1>&2)
 
 
 trace(){
-  echo 1>&2 "[TRACE] $@"
+  echo 1>&2 "$@"
 }
 
 commander(){
