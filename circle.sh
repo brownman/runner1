@@ -23,6 +23,7 @@ run1 netstat 'mongod --fork -f /etc/mongodb.conf; sleep 1; netstat -ntlp'
 run1 npm_packages1 'ls `npm root -g`'
 run1 bashrc_root 'cat /root/.bashrc'
 run1 ps 'ps aux'
+run1 circle_sh 'cat circle.sh'
 
 
 #run1 grunt 'ls $(which grunt) -l'
