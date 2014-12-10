@@ -1,6 +1,6 @@
 #export VER_MEAN_CLI='0.9.3'
 set -u
-exec 1>/dev/null
+exec 1>/tmp/out
 
 
 trace(){
@@ -43,6 +43,10 @@ step3(){
   locate grunt-cli
 }
 
+parse_err(){
+  cat /tmp/out | grep -i err
+}
 
 step1
 step2
+parse_err
