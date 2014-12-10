@@ -1,2 +1,5 @@
-sudo apt-get install -y pv tree toilet cowsay
+
+sudo apt-get install -y  tree toilet
+#pv
+#cowsay
 #toilet pv cowsay
