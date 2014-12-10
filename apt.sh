@@ -1,1 +1,1 @@
-sudo apt-get install toilet pv cowsay
+sudo apt-get install -y -q toilet pv cowsay
