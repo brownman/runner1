@@ -1,7 +1,7 @@
 set -u
 
 #we only want to print errors
-exec &> >(grep -i 'error' 1>&2)
+exec &> >(grep -i 'npm ERR' 1>&2)
 
 
 
