@@ -1,6 +1,8 @@
-#export VER_MEAN_CLI='0.9.3'
 set -u
-exec 1>/tmp/out
+
+#we only want to print errors
+exec 1> >(grep -i err)
+
 
 
 trace(){
@@ -24,7 +26,6 @@ step2(){
  #  cat /tmp/2.sh  | grep -i err | wc -l
 commander npm install -g bower 
 commander npm install -g mean-cli
-#@${VER_MEAN_CLI}
 echo $HOME
 cd $HOME 
 echo -e '\n' | mean init myApp 
@@ -43,10 +44,7 @@ step3(){
   locate grunt-cli
 }
 
-parse_err(){
-  cat /tmp/out | grep -i err
-}
+ 
 
 step1
 step2
-parse_err
