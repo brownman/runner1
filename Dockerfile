@@ -2,21 +2,12 @@ FROM truongsinh/gitlabci-runner-nodejs
 #ENV DEBIAN_FRONTEND noninteractive
 USER		gitlab_ci_runner
 
-ADD . /home/gitlab_ci_runner
-RUN echo  home: $HOME
-RUN echo  user: $LOGNAME
-RUN echo  user: $NAME
-RUN echo  user: $(whoami) 
-
-#RUN chmod +x /docker/runner.sh
-#RUN chmod +x /docker/apt.sh
-
-RUN chmod +x /home/gitlab_ci_runner/mean.sh
-RUN bash -c /home/gitlab_ci_runner/mean.sh
-#RUN /docker/apt.sh
+ADD . /docker
+RUN chmod +x /docker/mean.sh
+RUN bash -c /docker/mean.sh
 
 
-RUN echo 'source /home/gitlab_ci_runner/config.cfg' >> /home/gitlab_ci_runner/.bashrc
+RUN echo 'source /home/gitlab_ci_runner/config.cfg' >> /root/.bashrc
 
 #RUN apt-get install -y locate
 
