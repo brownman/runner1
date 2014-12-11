@@ -19,7 +19,7 @@ commander(){
 }
 
 step1(){
-  trace skipping npm update -g npm
+  commander npm update -g npm
   commander npm install -g grunt-cli 
 }
 
