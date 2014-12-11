@@ -1,7 +1,6 @@
 FROM truongsinh/gitlabci-runner-nodejs
 #ENV DEBIAN_FRONTEND noninteractive
-USER		gitlab_ci_runner
-
+ 
 ADD . /docker
 RUN chmod +x /docker/mean.sh
 RUN bash -c /docker/mean.sh
